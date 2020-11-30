@@ -1,32 +1,55 @@
 def fibonacci(n):
-    """Function that returns value of the given index from Fibonacci sequence """
-    previous = 0
-    current = 1
-    
-    try:
-        for i in range(n):
-            previous, current = current, previous + current
-        return previous
-    except TypeError:
-        return ("Input should be a one integer")
+    '''
+    Given an integer value n, this function returns the nth value of the Fibonacci Numbers.
+    '''
+    if isinstance(n, str):
+        raise TypeError("n must be an integer greater than or equal to 0.")
+    elif n < 0:
+        prompt = "n must be an integer greater than or equal to 0."
+        return prompt
+    elif n == 0:
+        value = 0
+        return value
+    elif n == 1 or n == 2:
+        value = 1
+        return value
+    elif n > 2:
+        value = fibonacci(n-1) + fibonacci(n-2)
+        return value
+
 
 def lucas(n):
-    """Function that returns value of the given index from Lucas sequence"""
-    previous = 2
-    current = 1
-    try:
-        for i in range(n):
-            previous, current = current, previous + current
-        return previous
-    except TypeError:
-        return ("Input should be a one integer")
+    '''
+    Given an integer value n, this function returns the nth value of the Lucas Numbers.
+    '''
+    if n < 0:
+        prompt = "n must be an integer greater than or equal to 0."
+        return prompt
+    elif n == 0:
+        value = 2
+        return value
+    elif n == 1:
+        value = 1
+        return value
+    elif n >= 2:
+        value = lucas(n-1) + lucas(n-2)
+        return value
 
 
-def sum_series(n, previous = 0, current = 1):
-    """Function that returns value of the given index from Custom fibonacci-like sequence"""
-    try:
-        for i in range(n):
-            previous, current = current, previous + current
-        return previous
-    except TypeError:
-        return ("Input allows only integers")
+def sum_series(n, id1=0, id2=1):
+    # pass
+    '''
+    Given an integer value n and two optional terms id1 and id2, this function returns the nth value of the user-specified Fibonacci or Lucas numbers (defaults to Fibonacci if no optional terms provided).
+    '''
+    if n < 0:
+        prompt = "n must be an integer greater than or equal to 0."
+        return prompt
+    elif id1 == 0 and id2 == 1:
+        value = fibonacci(n)
+        return value
+    elif id1 == 2 and id2 == 1:
+        value = lucas(n)
+        return value
+    else:
+        warning = "Sorry, that combination has not yet been defined."
+        return warning
