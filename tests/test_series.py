@@ -100,7 +100,7 @@ def test_sum_series_lucas_0():
 
 def test_sum_series_less_than_zero():
     expected = "n must be an integer greater than or equal to 0."
-    actual = sum_series(1,0,1)
+    actual = sum_series(-1,0,1)
     assert actual == expected
 
 
