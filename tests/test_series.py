@@ -1,10 +1,7 @@
 import pytest
-from math_series.math_series import (
-    fibonacci,
-    lucas,
-    sum_series,
-)
+from math_series.series import fibonacci , lucas , sum_series
 
+# from math_series.math_series import fibonacci
 
 def test_fib_exists():
     assert fibonacci
@@ -38,7 +35,6 @@ def test_fib_less_than_0():
     assert actual == expected
 
 
-# @pytest.mark.skip
 def test_fib_str_0():
     with pytest.raises(TypeError):
         assert fibonacci("0") is TypeError
@@ -104,11 +100,11 @@ def test_sum_series_lucas_0():
 
 def test_sum_series_less_than_zero():
     expected = "n must be an integer greater than or equal to 0."
-    actual = sum_series(-1)
+    actual = sum_series(1,0,1)
     assert actual == expected
 
 
 def test_sum_series_not_fib_luc():
-    expected = "Sorry, that combination has not yet been defined."
+    expected = "Sorry, that sum is not defined."
     actual = sum_series(4, 1, 2)
     assert actual == expected
